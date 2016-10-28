@@ -1,0 +1,179 @@
+a {
+	color: inherit;
+	text-decoration: none;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(88%,rgba(0,0,0,0)), color-stop(89%,rgba(0,0,0,1)), color-stop(90%,rgba(0,0,0,1)), color-stop(91%,rgba(0,0,0,0)));
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 88%,rgba(0,0,0,1) 89%,rgba(0,0,0,1) 90%,rgba(0,0,0,0) 91%);
+	background: linear-gradient(to bottom, transparent 0%, transparent 88%, black 89%, black 90%, transparent 91%);
+	background-repeat: repeat-x;
+}
+
+.global-layout-1 {
+
+		@extend .c-12-12;
+}
+
+.global-layout-2 {
+
+	@extend .c-12-12;
+	@extend .c-o-1-12-s, .c-10-12-s;
+	@extend .c-o-2-12-m, .c-8-12-m;
+	@extend .c-o-3-12-xl, .c-6-12-xl;
+}
+
+.global-layout-3 {
+
+	margin-bottom: sizer($base-unit-xs, 1, 0);
+
+	@include breakpoint-viewport($viewport-s) {
+
+		margin-bottom: sizer($base-unit-s, 1, 0);
+	}
+
+	@include breakpoint-viewport($viewport-m) {
+
+		margin-bottom: sizer($base-unit-m, 1, 0);
+	}
+
+	@include breakpoint-viewport($viewport-l) {
+
+		margin-bottom: sizer($base-unit-l, 1, 0);
+	}
+
+	@include breakpoint-viewport($viewport-xl) {
+
+		margin-bottom: sizer($base-unit-xl, 1, 0);
+	}
+}
+
+.global-layout-4 {
+
+	margin-bottom: sizer($base-unit-xs, 0, 1/2) !important;
+
+	@include breakpoint-viewport($viewport-s) {
+
+		margin-bottom: sizer($base-unit-s, 0, 1/2) !important;
+	}
+
+	@include breakpoint-viewport($viewport-m) {
+
+		margin-bottom: sizer($base-unit-m, 0, 1/2) !important;
+	}
+
+	@include breakpoint-viewport($viewport-l) {
+
+		margin-bottom: sizer($base-unit-l, 0, 1/2) !important;
+	}
+
+	@include breakpoint-viewport($viewport-xl) {
+
+		margin-bottom: sizer($base-unit-xl, 0, 1/2) !important;
+	}
+}
+
+.section {
+
+	padding-top: $base-unit-xs * 3;
+	padding-bottom: $base-unit-xs * 3;
+
+	@include breakpoint-viewport($viewport-s) {
+
+		padding-top: $base-unit-s * 3;
+		padding-bottom: $base-unit-s * 3;
+	}
+
+	@include breakpoint-viewport($viewport-m) {
+
+		padding-top: $base-unit-m * 4;
+		padding-bottom: $base-unit-m * 4;
+	}
+
+	@include breakpoint-viewport($viewport-l) {
+
+		padding-top: $base-unit-l * 5;
+		padding-bottom: $base-unit-l * 5;
+	}
+
+	@include breakpoint-viewport($viewport-xl) {
+
+		padding-top: $base-unit-xl * 6;
+		padding-bottom: $base-unit-xl * 6;
+	}
+
+	// Theming
+
+	&--dark {
+
+		 background-color: #232326;
+		 color: #eeedf2 !important;
+	}
+
+	&--light {
+
+		 background-color: #f3f2f7;
+	}
+
+	// Headers
+
+	&__header {
+
+		&--1 {
+
+			@extend .type-xxl;
+			@extend .global-layout-1;
+
+			margin-bottom: $base-unit-xs;
+
+			@include breakpoint-viewport($viewport-s) {
+
+				margin-bottom: $base-unit-s;
+			}
+
+			@include breakpoint-viewport($viewport-m) {
+
+				text-align: center;
+				margin-bottom: $base-unit-m * 2;
+			}
+
+			@include breakpoint-viewport($viewport-l) {
+
+				margin-bottom: $base-unit-l * 2;
+			}
+
+			@include breakpoint-viewport($viewport-xl) {
+
+				margin-bottom: $base-unit-xl * 2;
+			}
+		}
+
+		&--2 {
+
+			@extend .type-l;
+			@extend .global-layout-2, .global-layout-3;
+
+		}
+	}
+
+	// Paragraphs
+
+	&__paragraph {
+
+		@extend .global-layout-2, .global-layout-3;
+	}
+
+	// Definition list
+
+	&__definition {
+
+		dt {
+
+			color: rgba(0,0,0,0.5);
+
+			@extend .global-layout-2, .global-layout-4;
+		}
+
+		dd {
+
+			@extend .global-layout-2, .global-layout-3;
+		}
+	}
+}

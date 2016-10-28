@@ -1,0 +1,186 @@
+
+header#main {
+
+	@include clear-float();
+
+	background-color: rgba(255, 255, 255, 1);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	position: fixed;
+	z-index: 3;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.98);
+
+	padding: 0 $grid-outer-margin-s;
+	margin-bottom: -(sizer($base-unit-xs, 2, 0));
+	
+	-moz-transition: all 0.2s ease-out;	
+	-webkit-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+
+	@include breakpoint-viewport($viewport-s){
+
+		padding: 0 ($base-unit-s * 2);
+		margin-bottom: -(sizer($base-unit-s, 2, 0));
+	}
+
+	@include breakpoint-viewport($viewport-m) {
+
+		padding: 0 $grid-outer-margin-m;
+		margin-bottom: -(sizer($base-unit-m, 2, 0));
+	}
+
+	@include breakpoint-viewport($viewport-l) {
+
+		padding: 0 $grid-outer-margin-l;
+		margin-bottom: -(sizer($base-unit-l, 2, 0));
+	}
+
+	@include breakpoint-viewport($viewport-xl) {
+
+		padding: 0 $grid-outer-margin-xl;
+		margin-bottom: -(sizer($base-unit-xl, 2, 0));
+	}
+
+	nav {
+
+		float: left;
+
+		ul {
+			@include clear-float();
+		}
+
+		li {
+
+			float: left;
+
+			> * {
+
+				display: block;
+				@include box-sizing(content-box);
+				text-decoration: none;
+				color: #000;
+
+				padding: sizer($base-unit-xs, 0, 1/2) sizer($base-unit-xs, 0, 1/2) sizer($base-unit-xs, 0, 1/2) 0;
+
+				@include breakpoint-viewport($viewport-s) {
+
+					padding: sizer($base-unit-s, 0, 1/2) sizer($base-unit-s, 0, 1/2) sizer($base-unit-s, 0, 1/2) 0;
+				}
+
+				@include breakpoint-viewport($viewport-m) {
+
+					padding: sizer($base-unit-m, 0, 1/2) sizer($base-unit-m, 0, 1/2) sizer($base-unit-m, 0, 1/2) 0;
+				}
+
+				@include breakpoint-viewport($viewport-l) {
+
+					padding: sizer($base-unit-l, 0, 1/2) sizer($base-unit-l, 0, 1/2) sizer($base-unit-l, 0, 1/2) 0;
+				}
+
+				@include breakpoint-viewport($viewport-xl) {
+
+					padding: sizer($base-unit-xl, 0, 1/2) sizer($base-unit-xl, 0, 1/2) sizer($base-unit-xl, 0, 1/2) 0;
+				}
+			}
+
+			a {
+				background: none;
+			}
+		}
+	}
+
+	.sections {
+
+		li {
+			a {
+
+				-moz-transition: -moz-transform 0.1s ease-out;
+				-webkit-transition: -webkit-transform 0.1s ease-out;
+			    transition: transform 0.1s ease-out;
+
+			    &:hover {
+			    	-webkit-transform: translate(0, -3px);
+			    	transform: translate(0, -3px);
+			    }
+			}
+		}
+	}
+
+	.tools {
+
+		float: right;
+		margin-right: -($grid-gutter-xs / 4);
+
+		@include breakpoint-viewport($viewport-s) {
+
+			margin-right: -($grid-gutter-s / 4);
+		}
+
+		@include breakpoint-viewport($viewport-m) {
+
+			margin-right: -($grid-gutter-m / 4);
+		}
+
+		@include breakpoint-viewport($viewport-l) {
+
+			margin-right: -($grid-gutter-l / 4);
+		}
+
+		@include breakpoint-viewport($viewport-xl) {
+
+			margin-right: -($grid-gutter-xl / 4);
+		}
+
+		li {
+
+			float: left;
+
+			a {
+				
+				overflow: hidden;
+				padding: sizer($base-unit-xs, 0, 1/2) sizer($base-unit-xs, 0, 1/2) sizer($base-unit-xs, 0, 1/2) sizer($base-unit-xs, 0, 1/2);
+				width: $base-unit-xs;
+
+			    img {
+			    	display: block;
+			    	width: 100%;
+		    		-webkit-transition: -webkit-transform 0.25s ease-out;
+		    		transition: transform 0.25s ease-out;
+			    }
+
+			    @include breakpoint-viewport($viewport-s) {
+
+			    	padding: sizer($base-unit-s, 0, 1/2) sizer($base-unit-s, 0, 1/2) sizer($base-unit-s, 0, 1/2) sizer($base-unit-s, 0, 1/2);
+			    	width: $base-unit-s;
+			    }
+
+			    @include breakpoint-viewport($viewport-m) {
+
+			    	padding: sizer($base-unit-m, 0, 1/2) sizer($base-unit-m, 0, 1/2) sizer($base-unit-m, 0, 1/2) sizer($base-unit-m, 0, 1/2);
+			    	width: $base-unit-m;
+			    }
+
+			    @include breakpoint-viewport($viewport-l) {
+
+			    	padding: sizer($base-unit-l, 0, 1/2) sizer($base-unit-l, 0, 1/2) sizer($base-unit-l, 0, 1/2) sizer($base-unit-l, 0, 1/2);
+			    	width: $base-unit-l;
+			    }
+
+			    @include breakpoint-viewport($viewport-xl) {
+
+			    	padding: sizer($base-unit-xl, 0, 1/2) sizer($base-unit-xl, 0, 1/2) sizer($base-unit-xl, 0, 1/2) sizer($base-unit-xl, 0, 1/2);
+			    	width: $base-unit-xl;
+			    }
+			}
+
+			a.active {
+
+				img {
+					content: url(../img/examples/icon_grid_color.svg);
+					-webkit-transform: rotate(90deg);
+					transform: rotate(90deg);
+				}
+			}
+		}
+	}
+}

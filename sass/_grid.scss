@@ -1,0 +1,361 @@
+*, *:before, *:after {
+	@include box-sizing(border-box);
+}
+
+body {
+	grid-column-count: $grid-column-count;
+}
+
+/*
+
+	Grids
+
+*/
+
+.grid {
+
+	margin: 0 auto;
+
+	padding-left: $grid-outer-margin-xs;
+	padding-right: $grid-outer-margin-xs;
+
+	@mixin grid($viewport, $grid-gutter, $grid-outer-margin) {
+
+		@include breakpoint-viewport($viewport) {
+			@if $viewport >= $viewport-l {
+				max-width: $viewport + (2 * $grid-outer-margin);
+			}
+			
+			padding-left: $grid-outer-margin;
+			padding-right: $grid-outer-margin;
+		}
+	}
+
+	@include grid($viewport-s, $grid-gutter-s, $grid-outer-margin-s);
+	@include grid($viewport-m, $grid-gutter-m, $grid-outer-margin-m);
+	@include grid($viewport-l, $grid-gutter-l, $grid-outer-margin-l);
+	@include grid($viewport-xl, $grid-gutter-xl, $grid-outer-margin-xl);
+}
+
+.grid.half-gutters {
+
+	@mixin grid($viewport, $grid-gutter, $grid-outer-margin) {
+
+		@include breakpoint-viewport($viewport) {
+			
+			max-width: $viewport + (2 * $grid-outer-margin) + (2 * $grid-gutter / 4);
+			padding-left: $grid-outer-margin + ($grid-gutter / 4);
+			padding-right: $grid-outer-margin + ($grid-gutter / 4);
+		}
+	}
+
+	@include grid($viewport-l, $grid-gutter-l, $grid-outer-margin-l);
+	@include grid($viewport-xl, $grid-gutter-xl, $grid-outer-margin-xl);
+}
+
+.grid.passepartout {
+
+	max-width: none;
+}
+
+.grid.full-width {
+
+	max-width: none;
+	padding: 0;
+	overflow: hidden;
+}
+
+.grid.full-height {
+
+	height: 100vh;
+	margin-top: 0;
+}
+
+/*
+
+	Rows
+
+*/
+
+.row {
+
+	margin-left: -($grid-gutter-xs / 2);
+	margin-right: -($grid-gutter-xs / 2);
+
+	@mixin grid-row($viewport, $grid-gutter) {
+		@include breakpoint-viewport($viewport) {
+			margin-left: -($grid-gutter / 2);
+			margin-right: -($grid-gutter / 2);
+		}
+	}
+
+	@include grid-row($viewport-s, $grid-gutter-s);
+	@include grid-row($viewport-m, $grid-gutter-m);
+	@include grid-row($viewport-l, $grid-gutter-l);
+	@include grid-row($viewport-xl, $grid-gutter-xl);
+
+	@include clear-float();
+}
+
+.row-clear {
+	@include clear-float();
+}
+
+.grid.full-height .row {
+
+	position: relative;
+	top: 50%;
+
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.grid.no-gutters .row {
+
+	margin-left: 0 !important;
+	margin-right: 0!important;
+}
+
+.grid.half-gutters .row {
+
+	margin-left: -($grid-gutter-xs / 4);
+	margin-right: -($grid-gutter-xs / 4);
+
+	@mixin grid-row($viewport, $grid-gutter) {
+		@include breakpoint-viewport($viewport) {
+			margin-left: -($grid-gutter / 4);
+			margin-right: -($grid-gutter / 4);
+		}
+	}
+
+	@include grid-row($viewport-s, $grid-gutter-s);
+	@include grid-row($viewport-m, $grid-gutter-m);
+	@include grid-row($viewport-l, $grid-gutter-l);
+	@include grid-row($viewport-xl, $grid-gutter-xl);
+
+	@include clear-float();
+}
+
+
+@for $i from 1 through $grid-column-count {
+
+	.grid.masonry .row-#{$i} {
+
+		margin: 0 !important;
+		line-height: 0;
+
+		-moz-column-count: #{$i};
+		-webkit-column-count: #{$i};
+		column-count: #{$i};
+
+		-moz-column-gap: $grid-gutter-xs;
+		-webkit-column-gap: $grid-gutter-xs;
+		column-gap: $grid-gutter-xs;
+
+		@include breakpoint-viewport($viewport-s) {
+
+			-moz-column-gap: $grid-gutter-s;
+			-webkit-column-gap: $grid-gutter-s;
+			column-gap: $grid-gutter-s;
+		}
+
+		@include breakpoint-viewport($viewport-m) {
+
+			-moz-column-gap: $grid-gutter-m;
+			-webkit-column-gap: $grid-gutter-m;
+			column-gap: $grid-gutter-m;
+		}
+
+		@include breakpoint-viewport($viewport-l) {
+
+			-moz-column-gap: $grid-gutter-l;
+			-webkit-column-gap: $grid-gutter-l;
+			column-gap: $grid-gutter-l;
+		}
+
+		@include breakpoint-viewport($viewport-xl) {
+
+			-moz-column-gap: $grid-gutter-xl;
+			-webkit-column-gap: $grid-gutter-xl;
+			column-gap: $grid-gutter-xl;
+		}
+	}
+}
+
+@mixin grid-masonry-row($viewport, $viewport-name, $grid-gutter) {
+
+	@for $i from 1 through $grid-column-count {
+
+		.grid.masonry .row-#{$i}-#{$viewport-name} {
+		
+			@include breakpoint-viewport($viewport) {
+
+				-moz-column-count: #{$i};
+				-webkit-column-count: #{$i};
+				column-count: #{$i};
+			}
+		}
+	}
+}
+
+@include grid-masonry-row($viewport-s, s, $grid-gutter-s);
+@include grid-masonry-row($viewport-m, m, $grid-gutter-m);
+@include grid-masonry-row($viewport-l, l, $grid-gutter-l);
+@include grid-masonry-row($viewport-xl, xl, $grid-gutter-xl);
+
+/*
+
+	Columns
+
+*/
+
+
+.col {
+
+	float: left;
+	position: relative;
+	padding-left: $grid-gutter-xs / 2;
+	padding-right: $grid-gutter-xs / 2;
+	
+
+	@mixin grid-all-cols($viewport, $grid-gutter) {
+		@include breakpoint-viewport($viewport) {
+			padding-left: $grid-gutter / 2;
+			padding-right: $grid-gutter / 2;
+		}
+	}
+
+	@include grid-all-cols($viewport-s, $grid-gutter-s);
+	@include grid-all-cols($viewport-m, $grid-gutter-m);
+	@include grid-all-cols($viewport-l, $grid-gutter-l);
+	@include grid-all-cols($viewport-xl, $grid-gutter-xl);
+}
+
+@for $i from 1 through $grid-column-count {
+
+	@for $j from 1 through $grid-column-count {
+
+		.c-#{$i}-#{$j} {
+
+			width: percentage($i / $j);
+
+		}
+
+		.c-o-#{$i}-#{$j} {
+
+			margin-left: percentage($i / $j);
+		}
+
+		.c-p-#{$i}-#{$j}  {
+			
+			margin-left: -percentage($i / $j);
+		}
+	}
+}
+
+@mixin grid-cols($viewport, $viewport-name) {
+
+	@include breakpoint-viewport($viewport) {
+
+		@for $i from 1 through $grid-column-count {
+
+			@for $j from 1 through $grid-column-count {
+
+				.c-#{$i}-#{$j}-#{$viewport-name} {
+
+					width: percentage($i / $j);
+				}
+
+				.c-o-#{$i}-#{$j}-#{$viewport-name}  {
+					
+					margin-left: percentage($i / $j);
+				}
+
+				.c-p-#{$i}-#{$j}-#{$viewport-name}  {
+					
+					margin-left: percentage(-$i / $j);
+				}
+			}
+		}
+
+		.c-o-0-#{$viewport-name}  {
+			
+			margin-left: 0;
+		}
+
+		.c-p-0-#{$viewport-name}  {
+			
+			margin-left: 0;
+		}
+	}
+}
+
+@include grid-cols($viewport-s, s);
+@include grid-cols($viewport-m, m);
+@include grid-cols($viewport-l, l);
+@include grid-cols($viewport-xl, xl);
+
+@mixin hide($viewport, $viewport-name) {
+	@include breakpoint-viewport($viewport) {
+		.hide-#{$viewport-name} {
+			display: none !important;
+		}
+	}
+}
+
+@include hide($viewport-xs, xs);
+@include hide($viewport-s, s);
+@include hide($viewport-m, m);
+@include hide($viewport-l, l);
+@include hide($viewport-xl, xl);
+
+@mixin show($viewport, $viewport-name) {
+	@include breakpoint-viewport($viewport) {
+		.show-#{$viewport-name} {
+			display: block !important;
+		}
+	}
+}
+
+@include show($viewport-xs, xs);
+@include show($viewport-s, s);
+@include show($viewport-m, m);
+@include show($viewport-l, l);
+@include show($viewport-xl, xl);
+
+
+.grid.no-gutters .col {
+
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+
+.grid.half-gutters .col {
+
+	padding-left: $grid-gutter-xs / 4 !important;
+	padding-right: $grid-gutter-xs / 4 !important;
+
+	@mixin grid-all-cols($viewport, $grid-gutter) {
+		@include breakpoint-viewport($viewport) {
+			padding-left: $grid-gutter / 4 !important;
+			padding-right: $grid-gutter / 4 !important;
+		}
+	}
+
+	@include grid-all-cols($viewport-s, $grid-gutter-s);
+	@include grid-all-cols($viewport-m, $grid-gutter-m);
+	@include grid-all-cols($viewport-l, $grid-gutter-l);
+	@include grid-all-cols($viewport-xl, $grid-gutter-xl);
+}
+
+.grid.masonry .col {
+
+	float: none;
+	padding: 0;
+	width: 100%;
+	-webkit-column-break-inside: avoid;
+	page-break-inside: avoid;
+	break-inside: avoid;
+}

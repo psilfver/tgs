@@ -1,0 +1,123 @@
+
+@mixin box-sizing($val) {
+	-moz-box-sizing: $val;
+	-webkit-box-sizing: $val;
+	box-sizing: $val;
+}
+
+@mixin clear-float() {
+	
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+@function sizer($base, $factor, $increment) {
+
+	@return ($base * $factor) + ($base * $increment);
+}
+
+@mixin breakpoint-viewport($val) {
+
+	@media screen and (min-width: $val) {
+		@content;
+	}
+}
+
+@mixin breakpoint-viewport-height($val) {
+
+	@media screen and (min-height: $val) {
+		@content;
+	}
+}
+
+@mixin breakpoint-viewport-height-width($height, $width) {
+
+	@media screen and (min-height: $height) and (min-width: $width) {
+		@content;
+	}
+}
+
+@mixin breakpoint-ratio($ratio) {
+
+	@media screen and (-webkit-min-device-pixel-ratio: $ratio) {
+		@content;
+	}
+}
+
+@mixin breakpoint-viewport-ratio-density($val, $ratio, $density) {
+
+	@media screen and (min-width: $val) and (-webkit-min-device-pixel-ratio: $ratio), (min-resolution: $density) {
+		@content;
+	}
+}
+
+@mixin breakpoint-viewport-ratio($val, $ratio) {
+
+	@media screen and (min-width: $val) and (-webkit-min-device-pixel-ratio: $ratio) {
+		@content;
+	}
+}
+
+@mixin background-image-cover($url, $format) {
+
+	background: url(#{$url}_xs.#{$format}) no-repeat center center; 
+	background-size: cover;
+
+	@include breakpoint-ratio(2) {
+		background-image: url(#{$url}_xs@2x.#{$format})
+	}
+
+	@include breakpoint-viewport($viewport-s) {
+		background-image: url(#{$url}_s.#{$format})
+	}
+
+	@include breakpoint-viewport-ratio($viewport-s, 2) {
+		background-image: url(#{$url}_s@2x.#{$format})
+	}
+
+	@include breakpoint-viewport($viewport-m) {
+		background-image: url(#{$url}_m.#{$format})
+	}
+
+	@include breakpoint-viewport-ratio($viewport-m, 2) {
+		background-image: url(#{$url}_m@2x.#{$format})
+	}
+
+	@include breakpoint-viewport($viewport-l) {
+		background-image: url(#{$url}_l.#{$format})
+	}
+
+	@include breakpoint-viewport-ratio($viewport-l, 2) {
+		background-image: url(#{$url}_l@2x.#{$format})
+	}
+
+	@include breakpoint-viewport($viewport-xl) {
+		background-image: url(#{$url}_xl.#{$format})
+	}
+
+	@include breakpoint-viewport-ratio($viewport-xl, 2) {
+		background-image: url(#{$url}_xl@2x.#{$format})
+	}
+}

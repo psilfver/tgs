@@ -1,0 +1,136 @@
+/*
+
+	TYPOGRAPHY
+
+	Please refer to "__typography.scss" to further understand and change its capabilities
+
+*/
+
+/*
+
+	$typography-base-size-stack is the font stack for body copy and smaller sizes, and is font stack used for caluclating all the dynamic measurements
+	$typography-display-stack is the font stack for all sizes larger than the body copy
+
+*/
+
+$typography-base-stack: 'Source Sans Pro', 'Helvetica', sans;
+$typography-display-stack: 'Source Sans Pro', 'Helvetica', sans;
+
+/*
+
+	$typography-base-size-[xl,l,m,s,xs] sets the base size for the body copy at each viewport range
+
+	To see the scope of each viewport, please refer to $viewport-[xl,l,m,s,xs]
+
+*/
+
+$typography-base-size-xs: 16px;
+$typography-base-size-s: 16px;
+$typography-base-size-m: 20px;
+$typography-base-size-l: 20px;
+$typography-base-size-xl: 24px;
+
+
+/*
+
+	$typography-leading-factor-[xl,l,m,s,xs] is the factor by which the line height of the body copy is calculated
+	$typography-line-height-[xl,l,m,s,xs] is the line height
+
+*/
+
+$typography-leading-factor-xs: 1.5;
+$typography-leading-factor-s: 1.5;
+$typography-leading-factor-m: 1.5;
+$typography-leading-factor-l: 1.5;
+$typography-leading-factor-xl: 1.5;
+
+$base-unit-xs: $typography-base-size-xs * $typography-leading-factor-xs;		@debug base-unit-xs 	$base-unit-xs;
+$base-unit-s: $typography-base-size-s * $typography-leading-factor-s;			@debug base-unit-s 		$base-unit-s;
+$base-unit-m: $typography-base-size-m * $typography-leading-factor-m;			@debug base-unit-m 		$base-unit-m;
+$base-unit-l: $typography-base-size-l * $typography-leading-factor-l;			@debug base-unit-l 		$base-unit-l;
+$base-unit-xl: $typography-base-size-xl * $typography-leading-factor-xl;		@debug base-unit-xl 	$base-unit-xl;	
+
+/*
+
+	$typography-scale-[xl,l,m,s,xs] is the factor by which the typographic scale is calculated
+
+	Often times the line-height must be manually adjusted for each generated size, using $typography-line-height-[xl,l,m,s,xs] and $typography-increment-[xl,l,m,s,xs]
+
+*/
+
+$typography-modular-scale-xs: 1.25;
+$typography-modular-scale-s: 1.25;
+$typography-modular-scale-m: 1.333;
+$typography-modular-scale-l: 1.5;
+$typography-modular-scale-xl: 1.5;
+
+/*
+
+	GRID
+
+	Please refer to "_grid.sass" to further understand and change its capabilities
+
+*/
+
+/*
+
+	$viewport-[xl,l,m,s,xs] are the global viewports
+
+*/
+
+$viewport-xs: 320px;
+$viewport-s: 480px;
+$viewport-m: 768px;
+$viewport-l: 1025px;
+$viewport-xl: 1320px;
+
+/*
+
+	$grid-column-count is the number of columns generated for the grid system
+
+*/
+
+$grid-column-count: 12;
+
+/*
+
+	$grid-gutter-[xl,l,m,s,xs] is the gutter used in the grid system, preferably but not necessarily set to $typography-line-height-[xl,l,m,s,xs] to resonate with the typography
+
+*/
+
+$grid-gutter-xs: $base-unit-xs;
+$grid-gutter-s: $base-unit-s;
+$grid-gutter-m: $base-unit-m;
+$grid-gutter-l: $base-unit-l;
+$grid-gutter-xl: $base-unit-xl;
+
+/*
+
+	$grid-outer-margin-[xl,l,m,s,xs] is the outer margin for the grid system
+
+*/
+
+$grid-outer-margin-xs: $base-unit-xs;
+$grid-outer-margin-s: $base-unit-s;
+$grid-outer-margin-m: $base-unit-m;
+$grid-outer-margin-l: $base-unit-l * 2;
+$grid-outer-margin-xl: $base-unit-xl * 2;
+
+/*
+
+	All necessary imports that uses all of the above listed inputs to generate a typographic scale and related grid system
+
+*/
+
+@import 'reset';
+@import 'helpers';
+@import 'typography';
+@import 'grid';
+
+/*
+
+	Theme using the generated classes to demonstrate the framework
+
+*/
+
+@import 'demo/demo';

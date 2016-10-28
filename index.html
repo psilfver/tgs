@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--[if lt IE 9]>
+            <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+        <![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,1000,200italic,300italic,400italic,600italic,700italic,1000italic' rel='stylesheet' 
+        type='text/css'>
+        <link rel="stylesheet" href="css/main.min.css">
+        <link rel="stylesheet" href="css/vendor/animate.min.css">
+        <script src="js/vendor/jquery-1.11.3.min.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/srcset.min.js"></script>
+        <script src="js/vendor/smooth-scroll.min.js"></script>
+    </head>
+    <body>
+        <header id="main">
+            <nav class="sections">
+                <ul>
+                    <li>
+                        <a data-scroll data-options='{ "easing": "easeInOutQuad" }' href="#typography">
+                            Typography
+                        </a>
+                    </li>
+                    <li>
+                        <a data-scroll data-options='{ "easing": "easeInOutQuad" }' href="#grid">
+                            Grid
+                        </a>
+                    </li>
+                    <li>
+                        <a data-scroll data-options='{ "easing": "easeInOutQuad" }' href="#sizing">
+                            Sizing
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section id="typography" class="section">
+            <div class="grid">
+                <article class="row">
+                    <header>
+                        <h1 class="col section__header--1">
+                            Typography
+                        </h1>
+                    </header>
+                    <p class="col section__paragraph">
+                        All sizes at each viewport is calculated using the body size (.type-m), leading factor ($typography-leading-factor-…) and modular scale ($typography-modular-scale-…). Line height is set manually with the base unit ($base-unit-…) and base unit increments using sizer($base-unit-xs, number-of-base-units, base-unit-increments).
+                    </p>
+                    <h2 class="col section__header--2">
+                        Size classes
+                    </h2>
+                    <dl class="section__definition">
+                        <dt class="col">
+                            .type-s
+                        </dt>
+                        <dd class="col type-s">
+                            Starlight
+                        </dd>
+                        <dt class="col">
+                            .type-m
+                        </dt>
+                        <dd class="col type-m">
+                            Starlight
+                        </dd>
+                        <dt class="col">
+                            .type-l
+                        </dt>
+                        <dd class="col type-l">
+                            Starlight
+                        </dd>
+                        <dt class="col">
+                            .type-xl
+                        </dt>
+                        <dd class="col type-xl">
+                            Starlight
+                        </dd>
+                        <dt class="col">
+                            .type-xxl
+                        </dt>
+                        <dd class="col type-xxl">
+                            Starlight
+                        </dd>
+                        <dt class="col">
+                            .type-xxxl
+                        </dt>
+                        <dd class="col type-xxxl">
+                            Starlight
+                        </dd>
+                        <dt class="col">
+                            .type-xxxxl
+                        </dt>
+                        <dd class="col type-xxxxl">
+                            Starlight
+                        </dd>
+                    </dl>
+                </article>
+            </div>
+        </section>
+        <section id="grid" class="section section--dark">
+            <div class="grid">
+                <div class="row">
+                    <header>
+                        <h1 class="col section__header--1">
+                            Grid
+                        </h1>
+                    </header>
+                    <p class="col section__paragraph">
+                        The grid is based on the Twitter Boilerplate technique, based on breakpoints ($viewport-…), number of columns ($grid-column-count), gutter ($grid-gutter-) and outer margins ($grid-outer-margin). The grid contains several helpful classes to create different layouts (full width, half gutters, passepartout, full height, nesting and masonary).
+                    </p>
+                </div>
+            </div>
+            <article>
+                <div class="grid normal">
+                    <div class="row">
+                        <h2 class="col section__header--2">
+                            .grid
+                        </h2>
+                        <ul class="row-clear">
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="grid normal passepartout">
+                    <div class="row">
+                        <h2 class="section__header--2">
+                            .grid .passepartout
+                        </h2>
+                        <ul class="row-clear">
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="grid normal full-width">
+                    <div class="row">
+                        <h2 class="section__header--2">
+                            .grid .full-width
+                        </h2>
+                        <ul class="row-clear">
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article class="cover-demo">
+                <div class="grid normal full-height">
+                    <div class="row">
+                        <h2 class="section__header--2">
+                            .grid .full-height
+                        </h2>
+                        <ul class="row-clear">
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="grid normal no-gutters">
+                    <div class="row">
+                        <h2 class="section__header--2">
+                            .grid .no-gutters
+                        </h2>
+                        <ul class="row-clear">
+                            <li class="col"><div style="margin-bottom: 0"></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="grid normal half-gutters">
+                    <div class="row">
+                        <h2 class="section__header--2">
+                            .grid .half-gutters
+                        </h2>
+                        <ul class="row-clear">
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="grid nested">
+                    <div class="row">
+                        <h2 class="section__header--2">
+                            Nesting
+                        </h2>
+                        <ul class="row-clear">
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col"><div></div></li>
+                            <li class="col">
+                                <div>
+                                    <ul class="row">
+                                        <li class="col"><div></div></li>
+                                        <li class="col">
+                                            <div>
+                                                <ul class="row">
+                                                    <li class="col"><div></div></li>
+                                                    <li class="col"><div></div></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <div class="grid">
+                    <div class="row">
+                        <h2 class="section__header--2">
+                            .grid .masonary .row-x (only FireFox)
+                        </h2>
+                    </div>
+                </div>
+                <div class="grid masonry">
+                    <ul>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                        <li class="col"><div></div></li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+        <section id="sizing" class="section">
+            <div class="grid">
+                <article class="row">
+                    <header>
+                        <h1 class="col section__header--1">
+                            Sizing
+                        </h1>
+                    </header>
+                    <p class="col section__paragraph">
+                        Example of a UI element that uses base unit and base unit increments for rendering.
+                    </p>
+                    <h2 class="col section__header--2">
+                        Buttons
+                    </h2>
+                    <div class="col buttons">
+                        <a href="#" class="buttons__button">
+                            Button
+                        </a>
+                        <a href="#" class="buttons__button">
+                            Button
+                        </a>
+                        <a href="#" class="buttons__button">
+                            Button
+                        </a>
+                        <a href="#" class="buttons__button">
+                            Button
+                        </a>
+                        <a href="#" class="buttons__button">
+                            Button
+                        </a>
+                        <a href="#" class="buttons__button">
+                            Button
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <script src="js/vendor/wow.min.js"></script>
+        <script>
+            new WOW().init();
+            new smoothScroll.init();
+        </script>
+    </body>
+</html>
