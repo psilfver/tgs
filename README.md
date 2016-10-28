@@ -2,7 +2,7 @@
 
 A framework to experiment with typography as the foundation of a design system.
 
-The read me is currently under devlopment, but you can read more on [Medium](https://medium.com/@psilfver/a-design-system-built-on-typography-f49a8e079e2a#.nrcxv1sq8]) or try a [demo here](http://www.pettersilfver.com/demo/tgs]).
+The read me is currently under devlopment, but you can read more on [Medium](https://medium.com/@psilfver/a-design-system-built-on-typography-f49a8e079e2a#.nrcxv1sq8]) or try a [demo here](http://www.pettersilfver.com/demo/tgs).
 
 ## Change log
 
